@@ -77,18 +77,18 @@ def send_card(i_url, i_payload):
 
     return o_response
 
-def parse_data(i_row):
+def parse_data(i_row, i_nth):
     out = {}
-    out['subject']   = i_row[0][1]
-    out['nutrition'] = i_row[0][12]
+    out['subject']   = i_row[i_nth][1]
+    out['nutrition'] = i_row[i_nth][12]
 
     return out
 
-def prepare_card(i_project_id, i_subject):
+def prepare_card(i_project_id, i_data):
 
     o_payload = json.dumps({
         "project" : i_project_id      ,
-        "subject" : i_subject 
+        "subject" : i_data['subject'] + '-' + i_data['nutrition']
     })
 
     print (o_payload)
@@ -130,12 +130,12 @@ def select():
             print (row)
 
             for i in range(row_fetch):
-                out_data   = parse_data(row)
+                out_data   = parse_data(row, i)
 
                 project_id = 3
-                payload = prepare_card(project_id, out_data['subject'])
+                payload = prepare_card(project_id, out_data)
 
-               #send_card(url_user_stories, payload)
+                send_card(url_user_stories, payload)
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
