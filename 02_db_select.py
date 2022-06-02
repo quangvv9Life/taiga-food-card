@@ -95,6 +95,71 @@ ORDER BY id
 """
 
 ##################################################
+# Food data structure
+##################################################
+
+food_template = {
+
+    'food_id'      : 'food_id'              ,
+
+    'food_name'    : 'food_template'        ,
+
+    'total_ingredient' :  0                 ,
+
+    'ingredient_1' : {
+       'ingredient_name'   : 'ingredient_1' ,
+       'nu.calories'       : '20'           ,
+       'nu.dietaryFiber'   : '10'           ,
+       'nu.protein'        : '4'            ,
+       'nu.sugars'         : '15'           ,
+       'nu.totalCarbs'     : '3'            ,
+       'nu.totalFat'       : '2'            ,
+    },
+
+
+    'ingredient_2' : {
+       'ingredient_name'   : 'ingredient_2' ,
+       'nu.calories'       : '20'           ,
+       'nu.dietaryFiber'   : '10'           ,
+       'nu.protein'        : '4'            ,
+       'nu.sugars'         : '15'           ,
+       'nu.totalCarbs'     : '3'            ,
+       'nu.totalFat'       : '2'            ,
+    },
+
+    'ingredient_3' : {
+       'ingredient_name'   : 'ingredient_3' ,
+       'nu.calories'       : '20'           ,
+       'nu.dietaryFiber'   : '10'           ,
+       'nu.protein'        : '4'            ,
+       'nu.sugars'         : '15'           ,
+       'nu.totalCarbs'     : '3'            ,
+       'nu.totalFat'       : '2'            ,
+    },
+
+    'ingredient_4' : {
+       'ingredient_name'   : 'ingredient_4' ,
+       'nu.calories'       : '20'           ,
+       'nu.dietaryFiber'   : '10'           ,
+       'nu.protein'        : '4'            ,
+       'nu.sugars'         : '15'           ,
+       'nu.totalCarbs'     : '3'            ,
+       'nu.totalFat'       : '2'            ,
+    },
+
+    'ingredient_5' : {
+       'ingredient_name'   : 'ingredient_5' ,
+       'nu.calories'       : '20'           ,
+       'nu.dietaryFiber'   : '10'           ,
+       'nu.protein'        : '5'            ,
+       'nu.sugars'         : '15'           ,
+       'nu.totalCarbs'     : '5'            ,
+       'nu.totalFat'       : '5'            ,
+    },
+
+}
+
+##################################################
 # Functions
 ##################################################
 
