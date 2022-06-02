@@ -69,6 +69,10 @@ sql3 = """
 # Functions
 ##################################################
 
+def print_sql_out(i_rows):
+    for row in i_rows:
+        print (row)
+
 def send_card(i_url, i_payload):
     o_response = requests.request("POST", i_url, headers=headers, data=i_payload);
 
@@ -127,7 +131,7 @@ def select():
             row_fetch = 4
             row = curs.fetchmany(row_fetch)
 
-            print (row)
+            print_sql_out(row)
 
             for i in range(row_fetch):
                 out_data   = parse_data(row, i)
