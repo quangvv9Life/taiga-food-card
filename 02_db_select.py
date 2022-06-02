@@ -65,6 +65,36 @@ sql3 = """
      SELECT * FROM LessThan5wIngre ;
 """
 
+sql4 = """
+
+SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.FinalName,ig.OriginalWeight,ig.Calucateweight, ig.Calucateunit,ig.MaxCalucateWeight,ig.SubstituteIds,nu.unit,nu.isverified,
+
+		UNNEST(ARRAY[
+			'nu.calories','nu.sodium','nu.totalCarbs','nu.totalFat','nu.potassium','nu.saturated','nu.monounsaturated','nu.polyunsaturated','nu.dietaryFiber','nu.sugars','nu.trans','nu.protein','nu.cholesterol',
+			'nu.vitaminA','nu.vitaminC','nu.calcium','nu.iron']
+		) AS Nutritions,
+
+		UNNEST(ARRAY[
+			nu.calories,nu.sodium,nu.totalCarbs,nu.totalFat,nu.potassium,nu.saturated,nu.monounsaturated,nu.polyunsaturated,nu.dietaryFiber,nu.sugars,nu.trans,nu.protein,nu.cholesterol,
+			nu.vitaminA,nu.vitaminC,nu.calcium,nu.iron]
+		) AS Values,
+		--ROW_NUMBER() OVER (ORDER BY LT5WI.id ASC) AS id_rank
+		--ROW_NUMBER() OVER (PARTITION BY LT5WI.id ORDER BY LT5WI.id ASC) AS id_rank
+		DENSE_RANK() OVER (ORDER BY LT5WI.id ASC) AS id_rank
+	FROM LessThan5wIngre LT5WI
+	JOIN IngredientRef re ON LT5WI.id = re.CookyFoodId 
+	JOIN IngredientTrans ig ON re.IngredientId = ig.Id
+	JOIN IngredientNutrient nu ON ig.NameENG = nu.key
+	ORDER BY id
+) AS P
+WHERE 1 = 1
+AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
+AND id_rank <= 10
+ORDER BY id
+;
+
+"""
+
 ##################################################
 # Functions
 ##################################################
@@ -121,15 +151,17 @@ def select():
         print ( "*** Execute select***" )
 
         with conn.cursor() as curs:
-            curs.execute(sql2)
+            curs.execute(sql4)
             # print(curs.fetchall())
             # for row in curs.fetchmany(20):
             #     print (row[1])
             # print (curs.fetchmany(20))
             # print (type(curs.fetchmany(20)))
 
-            row_fetch = 4
-            row = curs.fetchmany(row_fetch)
+            # row_fetch = 40
+            # row = curs.fetchmany(row_fetch)
+
+            row = curs.fetchall()
 
             print_sql_out(row)
 
