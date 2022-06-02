@@ -128,6 +128,14 @@ def prepare_card(i_project_id, i_data):
 
     return o_payload
 
+def send_card(i_url, i_payload):
+    o_response = requests.request("POST", i_url, headers=headers, data=i_payload);
+
+    print (headers)
+    print (o_response)
+
+    return o_response
+
 def select():
     conn = None
     updated_rows = 0
