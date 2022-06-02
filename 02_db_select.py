@@ -167,18 +167,23 @@ def print_sql_out(i_rows):
     for row in i_rows:
         print (row)
 
-def send_card(i_url, i_payload):
-    o_response = requests.request("POST", i_url, headers=headers, data=i_payload);
+def parse_data_one(i_row):
+    out = {}
+    out['food_id']    = i_row[0]
+    out['food_name']  = i_row[1]
+    out['ingredient'] = i_row[2]
+    out['nutrition']  = i_row[12]
+    out['nutrition_amount']  = i_row[13]
 
-    print (headers)
-    print (o_response)
-
-    return o_response
+    return out
 
 def parse_data(i_row, i_nth):
     out = {}
-    out['subject']   = i_row[i_nth][1]
-    out['nutrition'] = i_row[i_nth][12]
+    out['food_id']    = i_row[i_nth][0]
+    out['food_name']  = i_row[i_nth][1]
+    out['ingredient'] = i_row[i_nth][2]
+    out['nutrition']  = i_row[i_nth][12]
+    out['nutrition_amount']  = i_row[i_nth][13]
 
     return out
 
@@ -222,6 +227,8 @@ def select():
 
         print ( "*** Execute select***" )
 
+        food_card_list = []
+
         with conn.cursor() as curs:
             curs.execute(sql4)
             # print(curs.fetchall())
@@ -233,17 +240,43 @@ def select():
             # row_fetch = 40
             # row = curs.fetchmany(row_fetch)
 
-            row = curs.fetchall()
+            rows = curs.fetchall()
 
-            print_sql_out(row)
+            print_sql_out(rows)
 
-            for i in range(row_fetch):
-                out_data   = parse_data(row, i)
+            i = 0
 
-                project_id = 3
-                payload = prepare_card(project_id, out_data)
+          # for i in range(row_fetch):
+            for row in rows:
+                out_data   = parse_data_one(row)
 
-                send_card(url_user_stories, payload)
+                print (out_data)
+
+                food_card = dict(food_template)
+
+                ingredient_num = i // 6 + 1
+
+                str_ingredient_num = 'ingredient' + '_' + str(ingredient_num)
+
+                food_card['food_id']   = out_data['food_id']
+                food_card['food_name'] = out_data['food_name']
+
+                food_card[str_ingredient_num]['ingredient_name']       = out_data['ingredient']
+
+                food_card[str_ingredient_num][out_data['nutrition']]   = str(out_data['nutrition_amount'])
+
+                food_card['total_ingredient']                          = ingredient_num
+
+                i = i + 1
+
+            food_card_list.append(food_card)
+
+        print (food_card_list[0])
+
+        project_id = 3
+      # payload = prepare_card(project_id, out_data)
+
+      # send_card(url_user_stories, payload)
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
