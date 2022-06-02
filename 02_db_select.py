@@ -75,8 +75,7 @@ SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.Fin
 		) AS Nutritions,
 
 		UNNEST(ARRAY[
-			nu.calories,nu.sodium,nu.totalCarbs,nu.totalFat,nu.potassium,nu.saturated,nu.monounsaturated,nu.polyunsaturated,nu.dietaryFiber,nu.sugars,nu.trans,nu.protein,nu.cholesterol,
-			nu.vitaminA,nu.vitaminC,nu.calcium,nu.iron]
+			nu.calories,nu.sodium,nu.totalCarbs,nu.totalFat,nu.potassium,nu.saturated,nu.monounsaturated,nu.polyunsaturated,nu.dietaryFiber,nu.sugars,nu.trans,nu.protein,nu.cholesterol, nu.vitaminA,nu.vitaminC,nu.calcium,nu.iron]
 		) AS Values,
 		--ROW_NUMBER() OVER (ORDER BY LT5WI.id ASC) AS id_rank
 		--ROW_NUMBER() OVER (PARTITION BY LT5WI.id ORDER BY LT5WI.id ASC) AS id_rank
