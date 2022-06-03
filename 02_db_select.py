@@ -218,6 +218,35 @@ def parse_data(i_row, i_nth):
 
     return out
 
+def parse_food(i_rows):
+    i = 0
+
+    o_food_card = dict(food_template)
+
+    for row in i_rows:
+        out_data   = parse_data_one(row)
+
+        print (out_data)
+
+        ingredient_num = i // 6 + 1
+
+        str_ingredient_num = 'ingredient' + '_' + str(ingredient_num)
+
+        o_food_card['food_id']   = out_data['food_id']
+        o_food_card['food_name'] = out_data['food_name']
+
+        o_food_card[str_ingredient_num]['ingredient_name']       = out_data['ingredient']
+
+        o_food_card[str_ingredient_num][out_data['nutrition']]   = str(out_data['nutrition_amount'])
+
+        o_food_card['total_ingredient']                          = ingredient_num
+
+        i = i + 1
+
+    print(o_food_card)
+
+    return o_food_card
+
 def prepare_card(i_project_id, i_data):
 
     o_payload = json.dumps({
@@ -275,34 +304,8 @@ def select():
 
             print_sql_out(rows)
 
-            i = 0
-
           # for i in range(row_fetch):
-            for row in rows:
-                out_data   = parse_data_one(row)
-
-                print (out_data)
-
-                food_card = dict(food_template)
-
-                ingredient_num = i // 6 + 1
-
-                str_ingredient_num = 'ingredient' + '_' + str(ingredient_num)
-
-                food_card['food_id']   = out_data['food_id']
-                food_card['food_name'] = out_data['food_name']
-
-                food_card[str_ingredient_num]['ingredient_name']       = out_data['ingredient']
-
-                food_card[str_ingredient_num][out_data['nutrition']]   = str(out_data['nutrition_amount'])
-
-                food_card['total_ingredient']                          = ingredient_num
-
-                i = i + 1
-
-            food_card_list.append(food_card)
-
-        print (food_card_list[0])
+            food_card = parse_food(rows)
 
         project_id = 3
       # payload = prepare_card(project_id, out_data)
