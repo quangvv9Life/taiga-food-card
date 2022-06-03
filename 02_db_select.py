@@ -138,6 +138,10 @@ food_template = {
 
     'total_ingredient' :  0                 ,
 
+    'food_total_carbs'    :  'NULL'         ,
+    'food_total_protein'  :  'NULL'         ,
+    'food_total_fat'      :  'NULL'         ,
+
     'ingredient_1' : {
        'ingredient_name'   : 'ingredient_1' ,
        'nu.calories'       : 'NULL'         ,
