@@ -287,8 +287,6 @@ def select():
 
         print ( "*** Execute select***" )
 
-        food_card_list = []
-
         with conn.cursor() as curs:
             curs.execute(sql4)
             # print(curs.fetchall())
@@ -307,10 +305,10 @@ def select():
           # for i in range(row_fetch):
             food_card = parse_food(rows)
 
-        project_id = 3
-      # payload = prepare_card(project_id, out_data)
+            project_id = 3
+          # payload = prepare_card(project_id, out_data)
 
-      # send_card(url_user_stories, payload)
+          # send_card(url_user_stories, payload)
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
