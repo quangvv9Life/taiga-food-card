@@ -11,7 +11,7 @@ import requests
 # Global for requests
 ##################################################
 
-AUTH_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MDc5NDA0LCJqdGkiOiI4YzdlY2ZmOTA0YTI0MmJhYmMzNzA2MGEzMzkyYmIxMSIsInVzZXJfaWQiOjV9.hW-PSDKWGxn0qxfdpo0WVLlg8-_CDuOZPrJgqkywARs'
+AUTH_TOKEN = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzM3ODg1LCJqdGkiOiJlNzYyYWQzNDQ3MmU0OGNlOTllNzI0OGVkNjlkZTE4NiIsInVzZXJfaWQiOjV9.QK_0j7DlqP9TRxh1-bD06bQV3zV1iv6rE86AUv9-WtY'
 
 headers = {
   "Content-Type": "application/json",
