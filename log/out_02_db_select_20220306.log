@@ -1,0 +1,85 @@
+
+ninehealth@ninehealth-VirtualBox:~/work/trytaigaAPI/taiga-food-card$ time python3 02_db_select.py
+*** Execute get ID***
+(14,)
+(34,)
+(39,)
+*** Execute select***
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.calories', '25', 1)
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.dietaryFiber', '1 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.protein', '1 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.sugars', '3 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.totalCarbs', '5 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Cà chua', 'tomato', 'tomato', None, None, None, None, None, '1 medium', '1', 'nu.totalFat', '0 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.calories', '1', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.dietaryFiber', '0 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.protein', '0 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.sugars', '0 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.totalCarbs', '0 g', 1)
+(14, 'Cà ri chay thập cẩm', 'Khoai tây', 'potato', 'Potato', None, None, None, None, None, '1 g', '1', 'nu.totalFat', '0 g', 1)
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.calories', 'nutrition_amount': '25'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.dietaryFiber', 'nutrition_amount': '1 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.protein', 'nutrition_amount': '1 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.sugars', 'nutrition_amount': '3 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.totalCarbs', 'nutrition_amount': '5 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Cà chua', 'nutrition': 'nu.totalFat', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.calories', 'nutrition_amount': '1'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.dietaryFiber', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.protein', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.sugars', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.totalCarbs', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'ingredient': 'Khoai tây', 'nutrition': 'nu.totalFat', 'nutrition_amount': '0 g'}
+{'food_id': 14, 'food_name': 'Cà ri chay thập cẩm', 'total_ingredient': 2, 'food_total_carbs': 'NULL', 'food_total_protein': 'NULL', 'food_total_fat': 'NULL', 'ingredient_1': {'ingredient_name': 'Cà chua', 'nu.calories': '25', 'nu.dietaryFiber': '1 g', 'nu.protein': '1 g', 'nu.sugars': '3 g', 'nu.totalCarbs': '5 g', 'nu.totalFat': '0 g'}, 'ingredient_2': {'ingredient_name': 'Khoai tây', 'nu.calories': '1', 'nu.dietaryFiber': '0 g', 'nu.protein': '0 g', 'nu.sugars': '0 g', 'nu.totalCarbs': '0 g', 'nu.totalFat': '0 g'}, 'ingredient_3': {'ingredient_name': 'ingredient_3', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_4': {'ingredient_name': 'ingredient_4', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_5': {'ingredient_name': 'ingredient_5', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}}
+{"project": 3, "subject": "C\u00e0 ri chay th\u1eadp c\u1ea9m", "description": "Carbs: 5 g\nProtein: 1 g\nFat: 0 g"}
+{'Content-Type': 'application/json', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzM3ODg1LCJqdGkiOiJlNzYyYWQzNDQ3MmU0OGNlOTllNzI0OGVkNjlkZTE4NiIsInVzZXJfaWQiOjV9.QK_0j7DlqP9TRxh1-bD06bQV3zV1iv6rE86AUv9-WtY'}
+<Response [201]>
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.calories', '80', 2)
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.dietaryFiber', '0 g', 2)
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.protein', '5 g', 2)
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.sugars', '0 g', 2)
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.totalCarbs', '14 g', 2)
+(34, 'Sữa chua xoài', 'Sữa chua ', 'yogurt', 'Yogurt', None, None, None, None, None, '1 cup', '1', 'nu.totalFat', '0 g', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.calories', '99', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.dietaryFiber', '3 g', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.protein', '1 g', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.sugars', '23 g', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.totalCarbs', '25 g', 2)
+(34, 'Sữa chua xoài', 'Xoài chín', 'mango', 'mango', None, None, None, None, None, '1 cup, pieces', '1', 'nu.totalFat', '1 g', 2)
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.calories', 'nutrition_amount': '80'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.dietaryFiber', 'nutrition_amount': '0 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.protein', 'nutrition_amount': '5 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.sugars', 'nutrition_amount': '0 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.totalCarbs', 'nutrition_amount': '14 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Sữa chua ', 'nutrition': 'nu.totalFat', 'nutrition_amount': '0 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.calories', 'nutrition_amount': '99'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.dietaryFiber', 'nutrition_amount': '3 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.protein', 'nutrition_amount': '1 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.sugars', 'nutrition_amount': '23 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.totalCarbs', 'nutrition_amount': '25 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'ingredient': 'Xoài chín', 'nutrition': 'nu.totalFat', 'nutrition_amount': '1 g'}
+{'food_id': 34, 'food_name': 'Sữa chua xoài', 'total_ingredient': 2, 'food_total_carbs': 'NULL', 'food_total_protein': 'NULL', 'food_total_fat': 'NULL', 'ingredient_1': {'ingredient_name': 'Sữa chua ', 'nu.calories': '80', 'nu.dietaryFiber': '0 g', 'nu.protein': '5 g', 'nu.sugars': '0 g', 'nu.totalCarbs': '14 g', 'nu.totalFat': '0 g'}, 'ingredient_2': {'ingredient_name': 'Xoài chín', 'nu.calories': '99', 'nu.dietaryFiber': '3 g', 'nu.protein': '1 g', 'nu.sugars': '23 g', 'nu.totalCarbs': '25 g', 'nu.totalFat': '1 g'}, 'ingredient_3': {'ingredient_name': 'ingredient_3', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_4': {'ingredient_name': 'ingredient_4', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_5': {'ingredient_name': 'ingredient_5', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}}
+{"project": 3, "subject": "S\u1eefa chua xo\u00e0i", "description": "Carbs: 39 g\nProtein: 6 g\nFat: 1 g"}
+{'Content-Type': 'application/json', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzM3ODg1LCJqdGkiOiJlNzYyYWQzNDQ3MmU0OGNlOTllNzI0OGVkNjlkZTE4NiIsInVzZXJfaWQiOjV9.QK_0j7DlqP9TRxh1-bD06bQV3zV1iv6rE86AUv9-WtY'}
+<Response [201]>
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.calories', '0', 3)
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.dietaryFiber', '0 g', 3)
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.protein', '0 g', 3)
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.sugars', '0 g', 3)
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.totalCarbs', '0 g', 3)
+(39, 'Cá trứng nướng muối ớt', 'Muối', 'salt', 'Salt', None, None, None, None, None, '1 tsp', '1', 'nu.totalFat', '0 g', 3)
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.calories', 'nutrition_amount': '0'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.dietaryFiber', 'nutrition_amount': '0 g'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.protein', 'nutrition_amount': '0 g'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.sugars', 'nutrition_amount': '0 g'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.totalCarbs', 'nutrition_amount': '0 g'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'ingredient': 'Muối', 'nutrition': 'nu.totalFat', 'nutrition_amount': '0 g'}
+{'food_id': 39, 'food_name': 'Cá trứng nướng muối ớt', 'total_ingredient': 1, 'food_total_carbs': 'NULL', 'food_total_protein': 'NULL', 'food_total_fat': 'NULL', 'ingredient_1': {'ingredient_name': 'Muối', 'nu.calories': '0', 'nu.dietaryFiber': '0 g', 'nu.protein': '0 g', 'nu.sugars': '0 g', 'nu.totalCarbs': '0 g', 'nu.totalFat': '0 g'}, 'ingredient_2': {'ingredient_name': 'Xoài chín', 'nu.calories': '99', 'nu.dietaryFiber': '3 g', 'nu.protein': '1 g', 'nu.sugars': '23 g', 'nu.totalCarbs': '25 g', 'nu.totalFat': '1 g'}, 'ingredient_3': {'ingredient_name': 'ingredient_3', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_4': {'ingredient_name': 'ingredient_4', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}, 'ingredient_5': {'ingredient_name': 'ingredient_5', 'nu.calories': 'NULL', 'nu.dietaryFiber': 'NULL', 'nu.protein': 'NULL', 'nu.sugars': 'NULL', 'nu.totalCarbs': 'NULL', 'nu.totalFat': 'NULL'}}
+{"project": 3, "subject": "C\u00e1 tr\u1ee9ng n\u01b0\u1edbng mu\u1ed1i \u1edbt", "description": "Carbs: 0 g\nProtein: 0 g\nFat: 0 g"}
+{'Content-Type': 'application/json', 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU0MzM3ODg1LCJqdGkiOiJlNzYyYWQzNDQ3MmU0OGNlOTllNzI0OGVkNjlkZTE4NiIsInVzZXJfaWQiOjV9.QK_0j7DlqP9TRxh1-bD06bQV3zV1iv6rE86AUv9-WtY'}
+<Response [201]>
+
+real    0m41.986s
+user    0m0.193s
+sys     0m0.017s
+ninehealth@ninehealth-VirtualBox:~/work/trytaigaAPI/taiga-food-card$
+
