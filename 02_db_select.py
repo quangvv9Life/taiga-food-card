@@ -88,7 +88,8 @@ SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.Fin
 ) AS P
 WHERE 1 = 1
 AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
-AND id_rank <= 1
+AND id_rank <= 10
+AND id = %s
 ORDER BY id
 ;
 
@@ -288,7 +289,7 @@ def select():
         print ( "*** Execute select***" )
 
         with conn.cursor() as curs:
-            curs.execute(sql4)
+            curs.execute(sql4, (34,))
             # print(curs.fetchall())
             # for row in curs.fetchmany(20):
             #     print (row[1])
