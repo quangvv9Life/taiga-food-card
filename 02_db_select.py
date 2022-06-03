@@ -255,8 +255,9 @@ def parse_food(i_rows):
 def prepare_card(i_project_id, i_data):
 
     o_payload = json.dumps({
-        "project" : i_project_id      ,
-        "subject" : i_data['subject'] + '-' + i_data['nutrition']
+        "project"     : i_project_id          ,
+        "subject"     : i_data['subject']     ,
+        "description" : i_data['description']
     })
 
     print (o_payload)
@@ -290,30 +291,69 @@ def select():
 #       with conn.cursor() as curs:
 #           curs.execute(sql1)
 
+        # [QA] Why do 2 SQL queries take 20 seconds?
+        print ( "*** Execute get ID***" )
+
+        food_id_rows = ()
+        with conn.cursor() as curs:
+            curs.execute(sql5)
+            food_id_rows = curs.fetchall()
+
+            print_sql_out(food_id_rows)
+
         print ( "*** Execute select***" )
 
-        with conn.cursor() as curs:
-            curs.execute(sql4, (34,))
-            # print(curs.fetchall())
-            # for row in curs.fetchmany(20):
-            #     print (row[1])
-            # print (curs.fetchmany(20))
-            # print (type(curs.fetchmany(20)))
+        for food_id in food_id_rows:
 
-            # row_fetch = 40
-            # row = curs.fetchmany(row_fetch)
+            with conn.cursor() as curs:
+                curs.execute(sql4, (food_id,))
+                # print(curs.fetchall())
+                # for row in curs.fetchmany(20):
+                #     print (row[1])
+                # print (curs.fetchmany(20))
+                # print (type(curs.fetchmany(20)))
 
-            rows = curs.fetchall()
+                # row_fetch = 40
+                # row = curs.fetchmany(row_fetch)
 
-            print_sql_out(rows)
+                rows = curs.fetchall()
 
-          # for i in range(row_fetch):
-            food_card = parse_food(rows)
+                print_sql_out(rows)
 
-            project_id = 3
-          # payload = prepare_card(project_id, out_data)
+              # for i in range(row_fetch):
+                food_card = parse_food(rows)
 
-          # send_card(url_user_stories, payload)
+                amount_to_int = lambda s : int(s.split(' ')[0])
+                int_to_amount = lambda i : str(i) + ' g'
+
+                food_total_carbs   = 0
+                food_total_protein = 0
+                food_total_fat     = 0
+
+                for i in range(food_card['total_ingredient']):
+                    food_total_carbs   += amount_to_int(food_card['ingredient_'+str(i+1)]['nu.totalCarbs'])
+                    food_total_protein += amount_to_int(food_card['ingredient_'+str(i+1)]['nu.protein'   ])
+                    food_total_fat     += amount_to_int(food_card['ingredient_'+str(i+1)]['nu.totalFat'  ])
+
+                food_card['food_total_carbs'   ] = int_to_amount(food_total_carbs   )
+                food_card['food_total_protein' ] = int_to_amount(food_total_protein )
+                food_card['food_total_fat'     ] = int_to_amount(food_total_fat     )
+
+                food_nutrition_all = "Carbs: {}\nProtein: {}\nFat: {}"
+
+                out_data = {}
+
+                out_data['subject'    ] = food_card['food_name']
+                out_data['description'] = food_nutrition_all.format(
+                                              food_card['food_total_carbs'   ],
+                                              food_card['food_total_protein' ],
+                                              food_card['food_total_fat'     ],
+                                          )
+
+                project_id = 3
+                payload = prepare_card(project_id, out_data)
+
+                send_card(url_user_stories, payload)
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
