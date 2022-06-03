@@ -226,6 +226,7 @@ def parse_data(i_row, i_nth):
 def parse_food(i_rows):
     i = 0
 
+    # [QA] When will dict object is deleted?
     o_food_card = dict(food_template)
 
     for row in i_rows:
