@@ -88,7 +88,7 @@ SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.Fin
 ) AS P
 WHERE 1 = 1
 AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
-AND id_rank <= 10
+AND id_rank <= 3
 AND id = %s
 ORDER BY id
 ;
@@ -120,7 +120,7 @@ SELECT DISTINCT id FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.Name
 ) AS P
 WHERE 1 = 1
 AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
-AND id_rank <= 10
+AND id_rank <= 3
 ORDER BY id
 ;
 
