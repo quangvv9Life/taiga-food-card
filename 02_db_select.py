@@ -81,7 +81,7 @@ SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.Fin
 		--ROW_NUMBER() OVER (PARTITION BY LT5WI.id ORDER BY LT5WI.id ASC) AS id_rank
 		DENSE_RANK() OVER (ORDER BY LT5WI.id ASC) AS id_rank
 	FROM LessThan5wIngre LT5WI
-	JOIN IngredientRef re ON LT5WI.id = re.CookyFoodId 
+	JOIN IngredientRef re ON LT5WI.id = re.CookyFoodId
 	JOIN IngredientTrans ig ON re.IngredientId = ig.Id
 	JOIN IngredientNutrient nu ON ig.NameENG = nu.key
 	ORDER BY id
@@ -89,6 +89,37 @@ SELECT * FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.Fin
 WHERE 1 = 1
 AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
 AND id_rank <= 1
+ORDER BY id
+;
+
+"""
+
+# Select ID
+
+sql5 = """
+
+SELECT DISTINCT id FROM (SELECT DISTINCT LT5WI.id,LT5WI.name, ig.NameVIE,ig.NameENG,ig.FinalName,ig.OriginalWeight,ig.Calucateweight, ig.Calucateunit,ig.MaxCalucateWeight,ig.SubstituteIds,nu.unit,nu.isverified,
+
+		UNNEST(ARRAY[
+			'nu.calories','nu.sodium','nu.totalCarbs','nu.totalFat','nu.potassium','nu.saturated','nu.monounsaturated','nu.polyunsaturated','nu.dietaryFiber','nu.sugars','nu.trans','nu.protein','nu.cholesterol',
+			'nu.vitaminA','nu.vitaminC','nu.calcium','nu.iron']
+		) AS Nutritions,
+
+		UNNEST(ARRAY[
+			nu.calories,nu.sodium,nu.totalCarbs,nu.totalFat,nu.potassium,nu.saturated,nu.monounsaturated,nu.polyunsaturated,nu.dietaryFiber,nu.sugars,nu.trans,nu.protein,nu.cholesterol, nu.vitaminA,nu.vitaminC,nu.calcium,nu.iron]
+		) AS Values,
+		--ROW_NUMBER() OVER (ORDER BY LT5WI.id ASC) AS id_rank
+		--ROW_NUMBER() OVER (PARTITION BY LT5WI.id ORDER BY LT5WI.id ASC) AS id_rank
+		DENSE_RANK() OVER (ORDER BY LT5WI.id ASC) AS id_rank
+	FROM LessThan5wIngre LT5WI
+	JOIN IngredientRef re ON LT5WI.id = re.CookyFoodId
+	JOIN IngredientTrans ig ON re.IngredientId = ig.Id
+	JOIN IngredientNutrient nu ON ig.NameENG = nu.key
+	ORDER BY id
+) AS P
+WHERE 1 = 1
+AND Nutritions in ('nu.calories','nu.totalCarbs','nu.totalFat','nu.dietaryFiber','nu.sugars','nu.protein')
+AND id_rank <= 10
 ORDER BY id
 ;
 
